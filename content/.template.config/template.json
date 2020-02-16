@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Martin Gill",
+    "classifications": [ "Common", "Solution", "Analyzers" ],
+    "identity": "MartinSGill.AnalyzedSolution",
+    "name": "Solution Repository Structure with Analyzers",
+    "shortName": "repo-sln",
+    "sourceName": "NewRepo",
+    "primaryOutputs": [
+      { "path": "NewRepo.sln" },
+      { "path": "NewRepo.sln.DotSettings" },
+      { "path": ".editorconfig" },
+      { "path": ".gitattributes" },
+      { "path": ".gitignore" },
+      { "path": ".Directory.Build.props" },
+      { "path": "build" },
+      { "path": "src/NewRepo/NewRepo.csproj" },
+      { "path": "src/NewRepo/Program.cs" },
+      { "path": "test/NewRepo.Tests/NewRepo.Tests.csproj" },
+      { "path": "test/NewRepo.Tests/ProgramTests.cs" }
+    ],
+    "defaultName": "NewRepo",
+    "preferNameDirectory": true
+}
