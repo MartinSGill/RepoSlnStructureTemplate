@@ -24,5 +24,5 @@ dotnew new --uninstall /full/path/folder/content
 ```powershell
 mkdir MyNewProject
 cd MyNewProject
-dotnet new new-repo
+dotnet new repo-sln
 ```
