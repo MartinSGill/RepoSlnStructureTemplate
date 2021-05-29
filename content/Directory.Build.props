@@ -6,22 +6,12 @@
     <TestFolder>$(MSBuildThisFileDirectory)test\</TestFolder>
   </PropertyGroup>
 
-  <ItemGroup Label="Analyzers">
+  <ItemGroup Label="Default Analyzers">
     <!-- Code Helpers -->
     <PackageReference Include="JetBrains.Annotations" Version="*" />
 
     <!-- Meta Package for all MS Analyzers -->
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="*">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.113">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-
-    <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="*">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="*">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -29,17 +19,36 @@
     <PackageReference Include="SonarAnalyzer.CSharp" Version="*" />
   </ItemGroup>
 
-  <ItemGroup Label="Analyzer Settings Files">
-    <!-- Shared Stylecop Rules. Make sure Build Action is "C# Analyzer Additional File" -->
-    <AdditionalFiles Include="$(EngFolder)stylecop.json" Link="stylecop.json" />
-    <AnalyzerRules Include="$(EngFolder)default-rules.xml"/>
+  <ItemGroup Label="Test Analyzers" Condition="$(MSBuildProjectName.EndsWith('Tests'))">
+    <PackageReference Include="xunit.analyzers" Version="*" />
+    <PackageReference Include="coverlet.msbuild" Version="3.0.3" />
   </ItemGroup>
 
+  <PropertyGroup Label="Settings for released projects" Condition="!$(MSBuildProjectName.EndsWith('Tests'))" >
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup Label="StyleCop only for released projects" Condition="!$(MSBuildProjectName.EndsWith('Tests'))" >
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.261">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
   <!-- Analyzers -->
-  <PropertyGroup Label="Analyzer Settings">
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  <PropertyGroup Label="Analyzer Settings" Condition="!$(MSBuildProjectName.EndsWith('Tests'))">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors>$(TreatWarningsAsErrors)</WarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>$(TreatWarningsAsErrors)</CodeAnalysisTreatWarningsAsErrors>
-    <CodeAnalysisRuleSet>@(AnalyzerRules)</CodeAnalysisRuleSet>
+
+    <!-- Stylecop doesn't always appear to respect .editorConfig -->
+    <NoWarn>$(NoWarn);SA1633;SA1101</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Analyzer Settings (Test)" Condition="$(MSBuildProjectName.EndsWith('Tests'))">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors>$(TreatWarningsAsErrors)</WarningsAsErrors>
+    <CodeAnalysisTreatWarningsAsErrors>$(TreatWarningsAsErrors)</CodeAnalysisTreatWarningsAsErrors>
+    <NoWarn>$(NoWarn);SA1633;SA1101;CA1801;CA2007;CA1707</NoWarn>
   </PropertyGroup>
 
 </Project>
