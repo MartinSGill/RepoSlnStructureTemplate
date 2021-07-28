@@ -5,11 +5,20 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{14B6D13C-14E3-4F18-9D4E-7FF0FCDA16FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewRepo", "src\NewRepo\NewRepo.csproj", "{EF2BC186-A921-441D-A922-7B51358CAA12}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "src\NewRepo\NewRepo.csproj", "{EF2BC186-A921-441D-A922-7B51358CAA12}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{72007C0B-3989-4BDB-9469-DF0E5ECC0BC0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewRepo", "NewRepo", "{72007C0B-3989-4BDB-9469-DF0E5ECC0BC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewRepo.Tests", "test\NewRepo.Tests\NewRepo.Tests.csproj", "{81B1817B-FCE6-48CC-BB58-E8EDD2D6DE62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test.Tests", "test\NewRepo.Tests\NewRepo.Tests.csproj", "{81B1817B-FCE6-48CC-BB58-E8EDD2D6DE62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "eng", "eng", "{FE499C01-432D-4510-B826-3A427506B242}"
+ProjectSection(SolutionItems) = preProject
+	eng\analyzers.props = eng\analyzers.props
+	.editorconfig = .editorconfig
+	.gitattributes = .gitattributes
+	.gitignore = .gitignore
+	Directory.Build.props = Directory.Build.props
+EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
