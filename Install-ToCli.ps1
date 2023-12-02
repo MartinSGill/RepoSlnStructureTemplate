@@ -1,2 +1,3 @@
 $path = (Get-ChildItem $PSScriptRoot -Filter "content").FullName
-dotnet new --install "$path"
+dotnet new uninstall $path
+dotnet new install $path

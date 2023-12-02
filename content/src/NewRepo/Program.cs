@@ -1,13 +1,3 @@
-namespace NewRepo
-{
-    using System;
-    using System.Threading.Tasks;
+using System;
 
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-            await Console.Out.WriteLineAsync("Hello World!");
-        }
-    }
-}
+await Console.Out.WriteLineAsync("Hello World!");
