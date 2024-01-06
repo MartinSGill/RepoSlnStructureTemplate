@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <None Include="$(RootFolder).gitignore" LinkBase="git" Condition="Exists('$(RootFolder).gitignore')"/>
+    <None Include="$(RootFolder).gitattributes" LinkBase="git" Condition="Exists('$(RootFolder).gitignore')"/>
+
+    <None Include="$(RootFolder)GitVersion.yml" LinkBase="git-version" Condition="Exists('$(RootFolder)GitVersion.yml')"/>
+
+    <None Include="$(RootFolder)Directory.Build.props" LinkBase="msbuild" Condition="Exists('$(RootFolder)Directory.Build.props')"/>
+    <None Include="$(RootFolder)Directory.Packages.props" LinkBase="msbuild" Condition="Exists('$(RootFolder)Directory.Packages.props')"/>
+
+    <None Include="$(RootFolder).config/dotnet-tools.json" LinkBase="dotnet" Condition="Exists('$(RootFolder).config/dotnet-tools.json')" />
+    <None Include="$(RootFolder)global.json" LinkBase="dotnet" Condition="Exists('$(RootFolder)global.json')"/>
+
+    <None Include="$(RootFolder).editorconfig" LinkBase="editor" Condition="Exists('$(RootFolder).editorconfig')"/>
+  </ItemGroup>
+</Project>

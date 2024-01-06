@@ -1,9 +1,10 @@
 ﻿<Project>
 
   <PropertyGroup Label="Folders">
+    <RootFolder>$(MSBuildThisFileDirectory)</RootFolder>
     <SrcFolder>$(MSBuildThisFileDirectory)src\</SrcFolder>
     <TestFolder>$(MSBuildThisFileDirectory)test\</TestFolder>
-    <EngFolder>$(MSBuildThisFileDirectory)Eng\</EngFolder>
+    <EngFolder>$(MSBuildThisFileDirectory)eng\</EngFolder>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <Nullable>enable</Nullable>
