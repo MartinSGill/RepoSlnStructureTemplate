@@ -5,25 +5,10 @@ root = true
 indent_style = space
 indent_size = 4
 tab_width = 4
-trim_trailing_whitespace = false
-insert_final_newline = false
-charset = utf-8
-end_of_line = crlf
-
-[*.{asax,ascx,aspx,cs,cshtml,css,htm,html,js,jsx,master,razor,skin,ts,tsx,vb,xaml,xamlx,xoml}]
-indent_style = space
-indent_size = 4
-tab_width = 4
 trim_trailing_whitespace = true
 insert_final_newline = true
-
-[*.{appxmanifest,build,config,csproj,dbml,discomap,dtd,json,jsproj,lsproj,njsproj,nuspec,proj,props,resjson,resw,resx,StyleCop,targets,tasks,vbproj,xml,xsd}]
-indent_style = space
-indent_size = 2
-tab_width = 2
-trim_trailing_whitespace = true
-
-[*.cs]
+charset = utf-8-bom
+end_of_line = crlf
 
 ###############################
 # .NET Coding Conventions     #
@@ -36,12 +21,8 @@ trim_trailing_whitespace = true
 
 csharp_style_conditional_delegate_call = true:suggestion
 csharp_style_deconstructed_variable_declaration = true:suggestion
-csharp_style_expression_bodied_accessors = true:silent
-csharp_style_expression_bodied_constructors = false:silent
 csharp_style_expression_bodied_indexers = true:silent
-csharp_style_expression_bodied_methods = false:silent
 csharp_style_expression_bodied_operators = false:silent
-csharp_style_expression_bodied_properties = true:silent
 csharp_style_inlined_variable_declaration = true:suggestion
 csharp_style_pattern_local_over_anonymous_function = true:suggestion
 csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
@@ -58,43 +39,24 @@ csharp_style_var_when_type_is_apparent = true:suggestion
 
 csharp_indent_case_contents = true
 csharp_indent_labels = flush_left
-csharp_indent_switch_labels = true
-csharp_new_line_before_catch = true
-csharp_new_line_before_else = true
-csharp_new_line_before_finally = true
 csharp_new_line_before_members_in_anonymous_types = true
 csharp_new_line_before_members_in_object_initializers = false
-csharp_new_line_before_open_brace = all
-csharp_new_line_between_query_expression_clauses = true
 csharp_prefer_simple_default_expression = true:suggestion
 csharp_preferred_modifier_order = public, private, protected, internal, file, new, static, abstract, virtual, sealed, readonly, override, extern, unsafe, volatile, async, required:suggestion
-csharp_preserve_single_line_blocks = true
 csharp_preserve_single_line_statements = true
-csharp_space_after_cast = false
-csharp_space_after_colon_in_inheritance_clause = true
-csharp_space_after_comma = true
-csharp_space_after_dot = false
-csharp_space_after_keywords_in_control_flow_statements = true
-csharp_space_around_binary_operators = before_and_after
-csharp_space_before_colon_in_inheritance_clause = true
-csharp_space_between_method_call_empty_parameter_list_parentheses = false
-csharp_space_between_method_call_name_and_opening_parenthesis = false
-csharp_space_between_method_call_parameter_list_parentheses = false
-csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
-csharp_space_between_method_declaration_parameter_list_parentheses = false
-csharp_space_between_parentheses = false
 
 ###############################
 # C# Rider/ReSharper Rules    #
 ###############################
 
 # ReSharper inspection severities
-resharper_arrange_accessor_owner_body_highlighting = suggestion
 resharper_arrange_attributes_highlighting = warning
 resharper_arrange_constructor_or_destructor_body_highlighting = warning
 resharper_arrange_local_function_body_highlighting = warning
 resharper_arrange_method_or_operator_body_highlighting = warning
-resharper_arrange_missing_parentheses_highlighting = warning
+resharper_arrange_namespace_body_highlighting = suggestion
+resharper_arrange_null_checking_pattern_highlighting = suggestion
+resharper_arrange_object_creation_when_type_not_evident_highlighting = suggestion
 resharper_arrange_redundant_parentheses_highlighting = hint
 resharper_arrange_this_qualifier_highlighting = hint
 resharper_arrange_trailing_comma_in_multiline_lists_highlighting = warning
@@ -175,6 +137,7 @@ resharper_braces_for_for = required
 resharper_braces_for_foreach = required
 resharper_braces_for_ifelse = required
 resharper_braces_for_while = required
+resharper_can_use_global_alias = false
 resharper_csharp_empty_block_style = together_same_line
 resharper_csharp_wrap_after_declaration_lpar = true
 resharper_csharp_wrap_after_invocation_lpar = true
@@ -183,31 +146,32 @@ resharper_csharp_wrap_before_first_type_parameter_constraint = true
 resharper_csharp_wrap_extends_list_style = chop_if_long
 resharper_csharp_wrap_parameters_style = chop_if_long
 resharper_enforce_line_ending_style = true
-resharper_keep_existing_embedded_block_arrangement = false
-resharper_keep_existing_enum_arrangement = false
+resharper_formatter_off_tag = @formatter:off
+resharper_formatter_on_tag = @formatter:on
+resharper_formatter_tags_enabled = true
+resharper_keep_existing_declaration_block_arrangement = true
 resharper_max_enum_members_on_line = 1
+resharper_max_formal_parameters_on_line = 3
+resharper_max_primary_constructor_parameters_on_line = 3
 resharper_outdent_statement_labels = true
 resharper_place_accessorholder_attribute_on_same_line = false
 resharper_place_field_attribute_on_same_line = false
 resharper_qualified_using_at_nested_scope = true
 resharper_show_autodetect_configure_formatting_tip = false
-resharper_space_after_cast = false
-resharper_space_within_single_line_array_initializer_braces = true
 resharper_trailing_comma_in_multiline_lists = true
-resharper_trailing_comma_in_singleline_lists = false
-resharper_use_heuristics_for_body_style = true
 resharper_use_indent_from_vs = false
 resharper_wrap_before_extends_colon = true
 resharper_wrap_chained_method_calls = chop_if_long
 resharper_xmldoc_indent_text = ZeroIndent
 
 # Microsoft .NET properties
+dotnet_naming_rule.constant_fields_should_be_pascal_case.import_to_resharper = True
+dotnet_naming_rule.constant_fields_should_be_pascal_case.resharper_description = constant_fields_should_be_pascal_case
+dotnet_naming_rule.constant_fields_should_be_pascal_case.resharper_guid = 00b30e63-f2ef-4794-a621-1519d0952277
 ###############################
 # DOTNET Style Rules          #
 ###############################
 
-dotnet_sort_system_directives_first = true
-dotnet_separate_import_directive_groups = false
 
 # Style rules
 dotnet_style_coalesce_expression = true:suggestion
@@ -235,7 +199,7 @@ dotnet_style_readonly_field = true:suggestion
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggestion
 
 # Naming
-dotnet_naming_rule.constant_fields_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.constant_fields_should_be_pascal_case.severity = none
 dotnet_naming_rule.constant_fields_should_be_pascal_case.style = pascal_case_style
 dotnet_naming_rule.constant_fields_should_be_pascal_case.symbols = constant_fields
 dotnet_naming_rule.private_constants_rule.import_to_resharper = as_predefined
@@ -267,6 +231,20 @@ dotnet_naming_symbols.private_static_readonly_symbols.applicable_accessibilities
 dotnet_naming_symbols.private_static_readonly_symbols.applicable_kinds = field
 dotnet_naming_symbols.private_static_readonly_symbols.required_modifiers = static, readonly
 
+[*.{asax,ascx,aspx,cs,cshtml,css,htm,html,js,jsx,master,razor,skin,ts,tsx,vb,xaml,xamlx,xoml}]
+indent_style = space
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{appxmanifest,build,config,csproj,dbml,discomap,dtd,json,jsproj,lsproj,njsproj,nuspec,proj,props,resjson,resw,resx,StyleCop,targets,tasks,vbproj,xml,xsd}]
+indent_style = space
+indent_size = 2
+tab_width = 2
+trim_trailing_whitespace = true
+
+[*.cs]
 
 [{*.har,*.jsb2,*.jsb3,*.json,.babelrc,.eslintrc,.prettierrc,.stylelintrc,bowerrc,jest.config}]
 indent_style = space
@@ -285,6 +263,15 @@ indent_style = space
 indent_size = 0
 
 [*.{appxmanifest,asax,ascx,aspx,axaml,build,c,c++,cc,cginc,compute,cp,cpp,cs,cshtml,cu,cuh,cxx,dtd,fs,fsi,fsscript,fsx,fx,fxh,h,hh,hlsl,hlsli,hlslinc,hpp,hxx,inc,inl,ino,ipp,ixx,master,ml,mli,mpp,mq4,mq5,mqh,nuspec,paml,razor,resw,resx,skin,tpp,usf,ush,vb,xaml,xamlx,xoml,xsd}]
+indent_style = space
+indent_size = 4
+tab_width = 4
+
+[{*.graphqlconfig,*.graphqlrc,*.har,*.jsb2,*.jsb3,*.json,*.jsonc,*.postman_collection,*.postman_collection.json,*.postman_environment,*.postman_environment.json,.babelrc,.eslintrc,.prettierrc,.stylelintrc,bowerrc,jest.config}]
+indent_style = space
+indent_size = 2
+
+[*.{appxmanifest,asax,ascx,aspx,axaml,build,cg,cginc,compute,cs,cshtml,dtd,feature,fs,fsi,fsscript,fsx,fx,fxh,hlsl,hlsli,hlslinc,master,ml,mli,nuspec,paml,razor,resw,resx,skin,usf,ush,vb,xaml,xamlx,xoml,xsd}]
 indent_style = space
 indent_size = 4
 tab_width = 4
